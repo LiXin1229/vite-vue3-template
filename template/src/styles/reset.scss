@@ -1,0 +1,231 @@
+/* 2. 全局盒模型+基础重置 */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* 3. 页面基础样式 */
+body {
+  font-family: var(--font-base);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh; /* 确保页面至少占满视口高度 */
+}
+
+/* 4. 标题元素：统一间距+可自定义大小 */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  // margin-bottom: calc(var(--spacing-base) / 2);
+  font-weight: 600; /* 轻微加粗，提升层级 */
+}
+
+h1 {
+  font-size: calc(var(--font-size-base) * 2);
+}
+h2 {
+  font-size: calc(var(--font-size-base) * 1.75);
+}
+h3 {
+  font-size: calc(var(--font-size-base) * 1.5);
+}
+h4 {
+  font-size: calc(var(--font-size-base) * 1.25);
+}
+h5,
+h6 {
+  font-size: var(--font-size-base);
+}
+
+/* 5. 文本元素：统一间距 */
+p,
+blockquote,
+pre,
+dl,
+dd,
+dt,
+figure,
+figcaption,
+hr {
+  margin-bottom: var(--spacing-base);
+}
+
+hr {
+  height: 1px;
+  background-color: var(--color-border);
+}
+
+/* 6. 列表元素：支持自定义样式 */
+ul,
+ol {
+  list-style: none;
+}
+
+/* 7. 链接元素：hover效果+自定义 */
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color 0.2s ease; /* 平滑过渡 */
+}
+
+a:hover,
+a:active {
+  color: #004a99; /* hover深色 */
+}
+
+a:focus {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* 8. 媒体元素：优化响应式+圆角 */
+img,
+svg,
+video,
+canvas,
+audio,
+iframe,
+embed,
+object {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--border-radius-base); /* 统一圆角，按需修改 */
+}
+
+/* 9. 表单元素：增强样式+适配 */
+// input,
+// button,
+// select,
+// textarea {
+//   font-family: var(--font-base);
+//   font-size: var(--font-size-base);
+//   line-height: var(--line-height-base);
+//   color: var(--color-text);
+//   background-color: var(--color-bg);
+//   border: 1px solid var(--color-border);
+//   border-radius: var(--border-radius-base);
+//   padding: 8px 12px; /* 统一内边距 */
+//   transition: border-color 0.2s ease;
+// }
+
+/* 聚焦样式 */
+// input:focus,
+// button:focus,
+// select:focus,
+// textarea:focus {
+//   outline: none;
+//   border-color: var(--color-primary);
+//   box-shadow: 0 0 0 2px rgba(0, 102, 204, 0.2); /* 聚焦阴影，提升视觉 */
+// }
+
+/* 按钮样式：区分普通按钮和主要按钮 */
+// button {
+//   cursor: pointer;
+//   background-color: var(--color-bg);
+// }
+
+// button:disabled {
+//   cursor: not-allowed;
+//   opacity: 0.6;
+//   border-color: var(--color-border);
+//   box-shadow: none;
+// }
+
+/* 下拉选择框：自定义箭头（解决appearance清除后无箭头问题） */
+// select {
+//   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23666' viewBox='0 0 16 16'%3E%3Cpath d='M8 11l4-4H4l4 4z'/%3E%3C/svg%3E");
+//   background-repeat: no-repeat;
+//   background-position: right 12px center;
+//   padding-right: 32px; /* 预留箭头空间 */
+// }
+
+/* textarea：优化滚动条 */
+// textarea {
+//   resize: vertical; /* 仅允许垂直拉伸 */
+//   min-height: 80px; /* 最小高度，提升体验 */
+// }
+
+/* 复选框/单选框：保留默认样式（避免破坏可访问性） */
+// input[type='checkbox'],
+// input[type='radio'] {
+//   appearance: auto;
+//   -webkit-appearance: auto;
+//   -moz-appearance: auto;
+//   width: 16px;
+//   height: 16px;
+//   margin-right: 8px;
+//   vertical-align: middle;
+// }
+
+/* 10. 表格元素：增强样式 */
+// table {
+//   border-collapse: collapse;
+//   border-spacing: 0;
+//   width: 100%;
+//   margin-bottom: var(--spacing-base);
+// }
+
+// th,
+// td {
+//   padding: 12px;
+//   text-align: left;
+//   border-bottom: 1px solid var(--color-border);
+// }
+
+// th {
+//   font-weight: 600;
+//   background-color: rgba(0, 0, 0, 0.02); /* 表头轻微背景，提升区分度 */
+// }
+
+/* 11. 辅助类：快速开发 */
+/* 隐藏元素（屏幕阅读器不可见） */
+.hidden {
+  display: none !important;
+}
+
+/* 视觉隐藏（屏幕阅读器可见，页面不可见） */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+/* 居中类（配合Flex使用） */
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 水平方向的flex布局 */
+.flex-space {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* 清除浮动 */
+.clearfix::after {
+  content: '';
+  display: table;
+  clear: both;
+}
