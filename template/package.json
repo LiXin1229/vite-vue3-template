@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "test": "vite --mode test",
     "build": "vue-tsc -b && vite build",
     "preview": "vite preview",
     "lint:check": "eslint .",
